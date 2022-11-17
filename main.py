@@ -1,34 +1,75 @@
 from machine import Pin, I2C
+from machine import Timer
+from time import time
 import ssd1306
 import esp32
-import time
+
 
 i2c = I2C(sda=Pin(21), scl=Pin(22), freq=100000)
 display = ssd1306.SSD1306_I2C(128, 64, i2c)
 devices = i2c.scan()                               # len(devices)           hex(device)
 
-while(True):
+p25 = Pin(25, Pin.OUT)
+p14 = Pin(14, Pin.OUT)
 
-    time.sleep_ms(500)
-    temp = esp32.raw_temperature()                            # read the internal temperature of the MCU, in Fahrenheit
-    temp_c = ((temp - 32) * 5/9)
+last_clk_state = 0             #Variablen fuer Takt
+clk_state = 0
+zStempel = int(time())
+
+lastMillis1 = 0
+lastMillis1 = int(time())
+
+minutes = 0
+timer = 0
+temp_c = 0
+hall = 0
+
+
+while True:
+
+    #CLOCK
+    if clk_state == 0 and int(time()) - zStempel < 1:
+        clk_state = 1
+
+    if clk_state == 1 and int(time()) - zStempel >= 1:
+        if int(time()) - zStempel <= 2:
+            clk_state = 0
+
+    if last_clk_state != clk_state:
+        last_clk_state = clk_state
+        p14.value(clk_state)
+        p25.value(clk_state)
+
+    if int(time()) - zStempel >= 2:
+        zStempel = int(time())
+
+    #MILLIS CLOCK
+    if int(time()) - lastMillis1 >= 1:
+        temp = esp32.raw_temperature()  # read the internal temperature of the MCU, in Fahrenheit
+        temp_c = ((temp - 32) * 5 / 9)
+
+        hall = esp32.hall_sensor()
+
+        lastMillis1 = int(time())
+
     converted_temp_c = str(temp_c)
-
-    hall = esp32.hall_sensor()
     converted_hall = str(hall)
+    converted_clk_state = str(clk_state)
 
+    minutes = int(time()/60)
+    converted_minutes = str(minutes)
 
-
+    display.contrast(255)
+    display.invert(0)
     display.fill(0)
-    display.fill_rect(0, 0, 32, 32, 1)
-    display.fill_rect(2, 2, 28, 28, 0)
-    display.vline(9, 8, 22, 1)
-    display.vline(16, 2, 22, 1)
-    display.vline(23, 8, 22, 1)
-    display.fill_rect(26, 24, 2, 4, 1)
-    display.text('TEST', 40, 0, 1)
-    display.text('SSD1306', 40, 12, 1)
-    display.text('OLED 128x64', 40, 24, 1)
-    display.text(converted_temp_c, 40, 36, 1)
-    display.text(converted_hall, 40, 48, 1)
+    display.text('TallyWAN', 0, 0, 1)
+    display.text("CLK", 88, 0, 1)
+    display.text(converted_clk_state, 115, 0, 1)
+    display.text("Temp: ", 0, 24, 1)
+    display.text(converted_temp_c, 50, 24, 1)
+    display.text("Hall: ", 0, 36, 1)
+    display.text(converted_hall, 50, 36, 1)
+    display.text("Time: ", 0, 48, 1)
+    display.text(converted_minutes, 50, 48, 1)
+    display.text("min", 80, 48, 1)
     display.show()
