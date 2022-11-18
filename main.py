@@ -1,5 +1,4 @@
 from machine import Pin, I2C
-from machine import Timer
 from time import time
 import ssd1306
 import esp32
@@ -11,6 +10,7 @@ devices = i2c.scan()                               # len(devices)           hex(
 
 p25 = Pin(25, Pin.OUT)
 p14 = Pin(14, Pin.OUT)
+p35 = Pin(35, Pin.IN)
 
 last_clk_state = 0             #Variablen fuer Takt
 clk_state = 0
