@@ -268,7 +268,7 @@ minutes = 0
 timer = 0
 temp_c = 0
 hall = 0
-message = "Hello!"
+message = 0
 
 # Setup SPI
 spi = SPI(
@@ -301,9 +301,13 @@ while True:
         last_clk_state = clk_state
         p14.value(clk_state)
         p25.value(clk_state)
-        lora.send(message)
-        print("SEND: ")
-        print(message)
+
+        if clk_state == 1:
+            message += 1
+            converted_message = str(message)
+            lora.send(converted_message)
+            print("SEND: ")
+            print(converted_message)
 
     if int(time()) - zStempel >= 2:
         zStempel = int(time())
@@ -331,7 +335,7 @@ while True:
     display.text("CLK", 88, 0, 1)
     display.text(converted_clk_state, 115, 0, 1)
     display.text("SEND:", 0, 24, 1)
-    display.text(message, 50, 24, 1)
+    display.text(converted_message, 50, 24, 1)
     display.text("Temp: ", 0, 36, 1)
     display.text(converted_temp_c, 50, 36, 1)
     display.text("Time: ", 0, 48, 1)
