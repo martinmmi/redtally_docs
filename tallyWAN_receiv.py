@@ -269,7 +269,7 @@ minutes = 0
 timer = 0
 temp_c = 0
 hall = 0
-
+message = "init"
 
 # Setup SPI
 spi = SPI(
