@@ -1,6 +1,7 @@
 import gc
 import esp32
 import ssd1306
+
 from machine import Pin, I2C, SPI
 from time import time
 
@@ -268,7 +269,7 @@ minutes = 0
 timer = 0
 temp_c = 0
 hall = 0
-message = 0
+
 
 # Setup SPI
 spi = SPI(
@@ -285,6 +286,10 @@ lora = LoRa(
     spi,
     cs=Pin(CS, Pin.OUT),
     rx=Pin(RX, Pin.IN),
+    frequency=868.0,
+    bandwidth=250000,
+    spreading_factor=10,
+    coding_rate=5,
 )
 
 while True:
@@ -302,13 +307,6 @@ while True:
         p14.value(clk_state)
         p25.value(clk_state)
 
-        if clk_state == 1:
-            message += 1
-            converted_message = str(message)
-            lora.send(converted_message)
-            print("SEND: ")
-            print(converted_message)
-
     if int(time()) - zStempel >= 2:
         zStempel = int(time())
 
@@ -320,6 +318,10 @@ while True:
         hall = esp32.hall_sensor()
 
         lastMillis1 = int(time())
+
+
+    message = lora.recv()
+    converted_message = str(message)
 
     converted_temp_c = str(temp_c)
     converted_hall = str(hall)
@@ -334,7 +336,7 @@ while True:
     display.text('TallyWAN', 0, 0, 1)
     display.text("CLK", 88, 0, 1)
     display.text(converted_clk_state, 115, 0, 1)
-    display.text("SEND:", 0, 24, 1)
+    display.text("RECEIV:", 0, 24, 1)
     display.text(converted_message, 50, 24, 1)
     display.text("Temp: ", 0, 36, 1)
     display.text(converted_temp_c, 50, 36, 1)
