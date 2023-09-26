@@ -35,7 +35,7 @@ For a maximum useage I implement few different functions on a webserver. You can
 - post authenification via sha-keying
 
 ### Communication Pattern
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/c72ac58c-95e3-4d46-8063-0e43385acab2)
+![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/9178fa0d-4190-446d-a122-2931ede85520)
 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/eb5f3abf-4db6-4825-ad8c-441ccd8c2efd)
 
