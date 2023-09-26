@@ -1,4 +1,4 @@
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/5353144f-9e2b-47de-b563-aa2c616c6bc6)
+![20230606_194919](https://github.com/martinmmi/redtally_docs/assets/118231543/41d16b50-8dd0-446e-b311-2db1340b968b)
 
 # Welcome to official redtally support
 
@@ -17,9 +17,6 @@ If you have a situation, where the production depends from a wireless connectivi
 For the project i used to different microcontroller for it. The LilyGO-T-ETH-POE on the left site for the basestation and the LilyGO-LORA32 V2.1 one the right site for the tally-recipints. 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/43e292a9-aa7e-4fd7-8a1d-74053a3c38d3)
 For everything i designed und printed a 3d-case for a perfect use. Its only possible to use max. 4 recipints at the same time. You can turn it on with a switch on the left site. The reset button is only to clear the EEPROM / the lora-transmission settings. The basestation is powered via a usb-c cable or easy via PoE (IEEE 802.3af). 
-
-![20230606_194919](https://github.com/martinmmi/redtally_docs/assets/118231543/41d16b50-8dd0-446e-b311-2db1340b968b)
-
 
 ### Software
 For a maximum useage I implement few different functions on a webserver. You can access to them via the ip-adress on the display of the basestation. Make sure that the local ip-parameters in your network fit with the redtally solution. If there are in the same network, you have the access to follow functions:
