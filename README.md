@@ -1,5 +1,5 @@
 
-![20230606_194919_bbbb](https://github.com/martinmmi/redtally_docs/assets/118231543/8470632a-d659-47d1-a675-87a2d530abb3)
+![20230606_194919_bbbb](https://github.com/martinmmi/redtally_docs/assets/118231543/8ef63eed-c346-4ca2-a95e-5beae4328457)
 
 # Welcome to official redtally support
 
