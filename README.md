@@ -9,6 +9,7 @@ Its a small device where you can transmit tallys over long range via loraWAN-Tec
 > [!NOTE]
 > The following name recipients is also named as tally or receiver. Its the same meaning. The basestation is also named transmitter. 
 
+
 ## Applications und Use-cases for the device
 If you have a situation, where the production depends from a wireless connectivity, that solution is a perfect compromises between availability, independence and technical accuracy. A usesample is to use the redtally solution for a undended drone operator. He can move freely without having to worry about a cableconnection.
 
@@ -93,6 +94,7 @@ The are two modes availble. One with an *gpio close contact* (named GPIO in the 
 
 
 ## Throubleshooting
+_______________________________________________________________________________________________________________________________
 *The device didnt starts.* 
 
 Are you shure that the accumulator is already charged and the power-switch is turned on? If noting works, you can put on an micro-usb-cable to charge the tally. You can control the charaing controller, if you open cautiou the lid from the tally. On the controller is an blue led and an red led on, if the controller is actually charing. The red led displays that the accumulator loads successfully. If the tally still doesn't start, contact me and send it to service.
