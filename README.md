@@ -1,10 +1,13 @@
-![20230606_194919_b](https://github.com/martinmmi/redtally_docs/assets/118231543/0474652b-cf89-4b5a-9664-0932fb9b4fd7)
+![20230606_194919_bb](https://github.com/martinmmi/redtally_docs/assets/118231543/77b7a45f-2e49-4579-be96-8310acbb859d)
 
 # Welcome to official redtally support
 
 ## Introduction
 Here you will find my official support for redtally. I develooped it durring and after my work at the east-german television crew durring my masters.
-Its a small device where you can transmit tallys over long range via loraWAN-Technology. The Interfaces of this device are supported by relay closing contact and via TSL. For TSL, unconfortly supported controllers are the ross carbonite series. I planed to implement more interfaces, if the demand is there. The following name recipients is also named as tally or receiver. Its the same meaning. The basestation is also named transmitter. Its the same.
+Its a small device where you can transmit tallys over long range via loraWAN-Technology. The Interfaces of this device are supported by relay closing contact and via TSL. For TSL, unconfortly supported controllers are the ross carbonite series. I planed to implement more interfaces, if the demand is there. 
+
+> [!NOTE]
+> The following name recipients is also named as tally or receiver. Its the same meaning. The basestation is also named transmitter. 
 
 ## Applications und Use-cases for the device
 If you have a situation, where the production depends from a wireless connectivity, that solution is a perfect compromises between availability, independence and technical accuracy. A usesample is to use the redtally solution for a undended drone operator. He can move freely without having to worry about a cableconnection.
