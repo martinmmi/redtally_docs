@@ -67,7 +67,7 @@ For a maximum useage I implement few different functions on a webserver. You can
 For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, 
 but is of no further importance for the actualuse:
 
-![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/c90e8972-6a0b-4e59-b042-50993a018540)
+![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/03d81ffc-9cf1-4a04-aafb-fa7df5ba01d2)
 
 At the next is a diagram, which shows you different communication modes:
 
