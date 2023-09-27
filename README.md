@@ -59,7 +59,19 @@ For a maximum useage I implement few different functions on a webserver. You can
 - tsl-udp diagramm support
 - post authenification via sha-keying
 
-### Led States
+### Communication Pattern
+For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, 
+but is of no further importance for the actualuse:
+
+![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/c90e8972-6a0b-4e59-b042-50993a018540)
+
+At the next is a diagram, which shows you different communication modes:
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/eb5f3abf-4db6-4825-ad8c-441ccd8c2efd)
+
+The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. Requests will be sended, when the input-information are coming in. 
+
+### Led-States
 You have different colors and states on the led from the recipient:
 
 | Color | Frequency | Description |
@@ -71,19 +83,7 @@ You have different colors and states on the led from the recipient:
 | yellow | fast blinking | The tally is in the registration process |
 | off | constant | The tally is fully connected without any problems |
 
-### Communication Pattern
-For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, 
-but is of no further importance for the actual use:
-
-![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/9178fa0d-4190-446d-a122-2931ede85520)
-
-At the next is a diagram, which shows you different communication modes:
-
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/eb5f3abf-4db6-4825-ad8c-441ccd8c2efd)
-
-The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. Requests will be sended, when the input-information are coming in. 
-
-### Input Modes
+### Input-Modes
 The are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
