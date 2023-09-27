@@ -38,7 +38,9 @@ Here are listed the main product specifications:
 
 ## Hardware
 For the project i used two different microcontroller for it. The LilyGO-T-ETH-POE on the left site for the basestation and the LilyGO-LORA32 V2.1 one the right site for the tally-recipints. 
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/43e292a9-aa7e-4fd7-8a1d-74053a3c38d3)
+
 You can turn it on with a switch on the left site. The reset button is only to clear the EEPROM / the lora-transmission settings. For everything i designed und printed a 3d-case for a perfect use. 
 
 ## Software
@@ -72,9 +74,11 @@ You have different colors and states on the led from the recipient:
 ### Communication Pattern
 For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, 
 but is of no further importance for the actual use:
+
 ![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/9178fa0d-4190-446d-a122-2931ede85520)
 
 At the next is a diagram, which shows you different communication modes:
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/eb5f3abf-4db6-4825-ad8c-441ccd8c2efd)
 
 The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. Requests will be sended, when the input-information are coming in. 
