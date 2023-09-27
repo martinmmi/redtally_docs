@@ -14,7 +14,7 @@ If you have a situation, where the production depends from a wireless connectivi
 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/e6170ac3-c57e-4a25-af0b-8f77c0a12d58)
 
-## Productspecs
+## Product specification
 Here are listed the main product specifications:
 
 ### Basestation
