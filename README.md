@@ -85,7 +85,7 @@ The are two modes availble. One with an *gpio close contact* (named GPIO in the 
 
 > [!NOTE]
 > Here is a list by supported products for the TSL Mode at that time:
-- ross carbonite series
+- ross carbonite series (TSL v3.1 via UPD)
 
 I planed more interfaces depends from the demand:
 - acuity
