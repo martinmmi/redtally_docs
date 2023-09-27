@@ -39,6 +39,7 @@ Here are listed the main product specifications:
 - micro-usb for upate the device or charge it
 - SMA-Port for an antenna
 - one WS2812 neopixel leds for the directly view of that tally
+- multiple inputs at the same time are supported (for example in the mix mode from a switcher)
 
 ## Hardware
 For the project i used two different microcontroller for it. The LilyGO-T-ETH-POE on the left site for the basestation and the LilyGO-LORA32 V2.1 one the right site for the tally-recipints. 
@@ -46,6 +47,8 @@ For the project i used two different microcontroller for it. The LilyGO-T-ETH-PO
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/43e292a9-aa7e-4fd7-8a1d-74053a3c38d3)
 
 You can turn it on with a switch on the left site. The reset button is only to clear the EEPROM / the lora-transmission settings. For everything i designed und printed a 3d-case for a perfect use. 
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/3beaa7b6-c6aa-4b22-b656-8bfe4a978812)
 
 ## Software
 For a maximum useage I implement few different functions on a webserver. You can access to them via the ip-adress on the display of the basestation. Make sure that the local ip-parameters in your network fit with the redtally solution. If there are in the same network, you have the access to follow functions:
@@ -73,7 +76,20 @@ At the next is a diagram, which shows you different communication modes:
 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/eb5f3abf-4db6-4825-ad8c-441ccd8c2efd)
 
-The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. Requests will be sended, when the input-information are coming in. 
+The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. From here are only unicast sended by the basestation and the recipients. An Requests will be sended by the basestation, when the input-information are coming in. That message is responed by the recipient by an **acknowledge-message**. Durring the process, its importan to control the recipients that are already online over the time. For this the basestation will send an **control-message** to every recipients in an interval after 5-10 minutes. Thats also responed with an **acknowledge-message** by the recipient. If the recipient is not responding after two trys, maybe in case of the accumulator is empty or the recipient is out of range, the basestation will turn the respective tally as offline. The recipient will show it also with the yellow constant led state.
+
+### Input-Modes
+The are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
+
+Here is a list by supported products at that time:
+- ross carbonite series
+
+Planed devies depends from the demand:
+- acuity
+- vmix
+- tricaster
 
 ### Led-States
 You have different colors and states on the led from the recipient:
@@ -86,12 +102,6 @@ You have different colors and states on the led from the recipient:
 | yellow | slowly blinking | The tally is ready to connect with the basestation |
 | yellow | fast blinking | The tally is in the registration process |
 | off | constant | The tally is fully connected without any problems |
-
-### Input-Modes
-The are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
-
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
-
 
 ## Throubleshooting
 _______________________________________________________________________________________________________________________________
