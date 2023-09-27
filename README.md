@@ -67,10 +67,11 @@ You have different colors and states on the led from the recipient:
 | yellow | constant | The tally lost the connection and wait for auto-reconnection |
 | yellow | slowly blinking | The tally is ready to connect with the basestation |
 | yellow | fast blinking | The tally is in the registration process |
-| off | constant | The tally is fully conected without any problems |
+| off | constant | The tally is fully connected without any problems |
 
 ### Communication Pattern
-For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, but is of no further importance for the actual use:
+For all of the functionality and wireless communication it was nessesary to build an communication frame for it. Its represented by an byte frame, with is sended every time when an package is sended. This developed frame is listed here, 
+but is of no further importance for the actual use:
 ![267080081-c72ac58c-95e3-4d46-8063-0e43385acab2](https://github.com/martinmmi/redtally_docs/assets/118231543/9178fa0d-4190-446d-a122-2931ede85520)
 
 At the next is a diagram, which shows you different communication modes:
