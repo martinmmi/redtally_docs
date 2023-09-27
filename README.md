@@ -90,14 +90,24 @@ The are two modes availble. One with an *gpio close contact* (named GPIO in the 
 
 
 ## Throubleshooting
-*The device didnt starts.* Are you shure that the accumulator is already charged and the power-switch is turned on? If noting works, you can put on an micro-usb-cable to charge the tally. You can control the charaing controller, if you open cautiou the lid from the tally. On the controller is an blue led and an red led on, if the controller is actually charing. The red led displays that the accumulator loads successfully. If the tally still doesn't start, contact me and send it to service.
+*The device didnt starts.* 
 
-*Durring the GPIO-Mode more than one tally are turned on after turing on only on tally* ATTATION: There is actually an problem by the hardware site with the shared ground-mass. The current from one input flows back over the other inputs, and that the reason because you can have that problem.
+Are you shure that the accumulator is already charged and the power-switch is turned on? If noting works, you can put on an micro-usb-cable to charge the tally. You can control the charaing controller, if you open cautiou the lid from the tally. On the controller is an blue led and an red led on, if the controller is actually charing. The red led displays that the accumulator loads successfully. If the tally still doesn't start, contact me and send it to service.
+_______________________________________________________________________________________________________________________________
+*Durring the GPIO-Mode more than one tally are turned on after turing on only on tally* 
 
-*I can no longer reach the base station after an incorrect manual IP configuration* ATTATION: Until now there is now way to clear the eeprom manualy with an hardware-button. You can clean it with a software tool or send it back to me for an service.
+> [!WARNING]
+> There is actually an problem by the hardware site with the shared ground-mass. The current from one input flows back over the other inputs, and that the reason because you can have that problem.
+_______________________________________________________________________________________________________________________________
+*I can no longer reach the base station after an incorrect manual IP configuration* 
 
-*Can it used via VPN?* Its possible to use the system via VPN. The Data stream is completely encapsulated by the VPN-client. I tested it from germany to the european foreign countries successful.
+> [!WARNING]
+> Until now there is now way to clear the eeprom manualy with an hardware-button. You can clean it with a software tool or send it back to me for an service.
+_______________________________________________________________________________________________________________________________
+*Can it used via VPN?* 
 
+Its possible to use the system via VPN. The Data stream is completely encapsulated by the VPN-client. I tested it from germany to the european foreign countries successful.
+_______________________________________________________________________________________________________________________________
 
 
 
