@@ -83,8 +83,9 @@ The are two modes availble. One with an *gpio close contact* (named GPIO in the 
 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
 
-Here is a list by supported products at that time:
-- ross carbonite series
+> [!NOTE]
+> Here is a list by supported products for the TSL Mode at that time:
+> - ross carbonite series
 
 Planed devies depends from the demand:
 - acuity
