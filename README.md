@@ -55,7 +55,7 @@ You can turn it on with a switch on the left site. The reset button is only to c
 For a maximum useage I implement few different functions on a webserver. You can access to them via the ip-adress on the display of the basestation. Make sure that the local ip-parameters in your network fit with the redtally solution. If there are in the same network, you have the access to follow functions:
 - overview of connected tallys
 - input mode of gpio or tsl
-- assigment of channels
+- tsl assigment of channels
 - energy save mode
 - discover time
 - lora transmission values
@@ -104,6 +104,44 @@ You have different colors and states on the led from the recipient:
 | yellow | slowly blinking | The tally is ready to connect with the basestation |
 | yellow | fast blinking | The tally is in the registration process |
 | off | constant | The tally is fully connected without any problems |
+
+### TSL-Assigment of channels
+Under ```Configuration```, ```More TSL-Configurations``` you will find an assignment for the tallys. Every tally has an unique id (for example bb). With this function you can assign tallys for a different input-channel (for example tally bb for input 6). You can assign there the input-channels of the tsl program-bus and preview-bus. Until now its only possible to use the channels until 8.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ded70df8-c8b7-4349-8718-f8ccdc4a8c74)
+
+### tsl application port
+*coming soon*
+
+### tsl-udp diagramm support
+*coming soon*
+
+### Energy Save Mode
+Under ```Configuration``` you will find the energy save functionhe tallys. For this i turn of the display and put the recipients into a deep-sleep until shortly the next control message is comming. After them, its starts to sleep again. I implemented the function to save energy during an interruption or break. It receives also **request-messages** durring the deep-sleep. I dont know why, but i think it didnt turn off the loraMODEM.
+> [!IMPORTANT]
+> Please use this function as an unstable function.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ded70df8-c8b7-4349-8718-f8ccdc4a8c74)
+
+### Discover Time
+Under ```Configuration``` you will find the discover time field. Durring the discovering of recipients, is that the time which is renewed when a recipient is founded after it starts to go to the request-mode.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/fc0bb483-7d84-481f-a44e-7e32ce8fd799)
+
+### lora transmission values
+*coming soon*
+
+### user credentials
+*coming soon*
+
+### network operation mode (dhcp or manual)
+*coming soon*
+
+### static ip configuration
+*coming soon*
+
+### wlan and wlan credentials
+*coming soon*
+
+### post authenification via sha-keying
+*coming soon*
 
 ## Throubleshooting
 _______________________________________________________________________________________________________________________________
