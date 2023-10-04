@@ -81,6 +81,7 @@ The first, when everything is just turned on, the basestation sends an **discove
 
 ### Input-Modes
 Under ```Configuration``` there are are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
 
 > [!NOTE]
@@ -94,6 +95,7 @@ I planed more interfaces depends from the demand:
 
 ### Main-Page
 If you have successfull login in with the default login "admin", "admin", you have access to all of the listed functions below. But at first, something about the main page. In the green box you have the navigation-line. In the pink box is the status-line about the system.  It shows you into the red field the local basestation adress of the basestation, the yellow field shows you the current opperation mode, where the basestation is (here its the offer-mode) and the blue field shows you the totaly connected tallys in that moment. In the grey box, there is a overview about connected and deconnected tallys, the rssi connection quality and remaining battery capacity.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/4a0f398b-9f45-4374-a9bb-f65a19a796b5)
 
 
@@ -113,16 +115,19 @@ You have different colors and states on the led from the recipient:
 Under ```Configuration```, ```More TSL-Configurations``` you have the oppertunity to select the used interface for tsl-communication.
 > [!NOTE]
 > At this time, only the ross carbonite series is supported.
+> 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/a7f2fe7f-06f1-4013-9c0e-f24d3d9f4580)
 
 ### TSL-Transport
 Under ```Configuration```, ```More TSL-Configurations``` you can choose the transport protocol for the tsl-communication. 
 > [!NOTE]
 > Until now only udp is fully implemented and supported. I already implement TCP for the ross-acuity series and other, but its not fully tested and the fields for the Acknowledge-Answers are still missing.
+> 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/a7f2fe7f-06f1-4013-9c0e-f24d3d9f4580)
 
 ### TSL-Assigment of channels
 Under ```Configuration```, ```More TSL-Configurations``` you will find an assignment for the tallys. Every tally has an unique id (for example bb). With this function you can assign tallys for a different input-channel (for example tally bb for input 6). You can assign there the input-channels of the tsl program-bus and preview-bus. Until now its only possible to use the channels until 8.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ded70df8-c8b7-4349-8718-f8ccdc4a8c74)
 
 ### TSL-Application port
@@ -133,15 +138,19 @@ Under ```Configuration```, ```More TSL-Configurations``` is the incoming tsl-udp
 Under ```Configuration``` you will find the energy save functionhe tallys. For this i turn of the display and put the recipients into a deep-sleep until shortly the next control message is comming. After them, its starts to sleep again. I implemented the function to save energy during an interruption or break. It receives also **request-messages** durring the deep-sleep. I dont know why, but i think it didnt turn off the loraMODEM.
 > [!IMPORTANT]
 > Please use this function as an unstable function.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/fc3a8172-6efd-4525-b710-73fa22a0fad1)
 
 ### Discover Time
 Under ```Configuration``` you will find the discover time field. Durring the discovering of recipients, is that the time which is renewed when a recipient is founded after it starts to go to the request-mode.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/fc0bb483-7d84-481f-a44e-7e32ce8fd799)
 
 ### Lora Config
 Under ```Configuration``` you will find the lora-transmission-parameters. For you its only possible to change the transmission power of the lora-transmission. The change affects both the sender and the receiver. The sender and the receiver will restart by yourself, if the values is changed. 
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/58370e98-b220-4968-ae04-c61d8ecf4e2b)
+
 Here some information for the spreading factor (sf):
 
 Small spreading factor (e.g.⁥SF7):
@@ -166,20 +175,24 @@ The bandwidth for the LoRa modulation can be adjusted, including 31.25 kHz, 41.7
 
 ### User Credentials
 Under ```Configuration``` you can change the user credentials for your login. The user and the password are stored into the eeprom. Please dont forget it, otherwise the eeprom musst restored. For every authenification i used a post request via sha-keying. The default login is "admin" with the passwort "admin".
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/88aa5027-8269-47a6-9e22-d6be10daf649)
 
 ### Wlan and wlan credentials
 Under ```Network``` you can activate the wlan function and if its possible, change the credentials. 
 > [!NOTE]
 > At this time, you must activate the wlan manualy because the value is not stored into the eeprom.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/e01fccf0-facf-4b39-9c8b-c68d1dd6836d)
 
 ### Network operation mode (Dhcp or Manual)
 Under ```Network``` you can change the network operation mode. Its possilble to yous dhcp or manual. The value is stored into the eeprom. The small display on the basestation showed the current ip-adress.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/418b67b1-4c98-4987-ab1d-10f5a6c07340)
 
 ### Static ip-configuration
 Under ```Network``` you can change ip-adresses for the manual network mode. The values are stored into the eeprom.
+
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/4ded4177-5f02-4ea2-8f14-e8b8aebf3b8b)
 
 ## Throubleshooting
