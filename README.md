@@ -122,8 +122,8 @@ Under ```Configuration```, ```More TSL-Configurations``` you have the oppertunit
 Under ```Configuration```, ```More TSL-Configurations``` you can choose the transport protocol for the tsl-communication. 
 > [!NOTE]
 > Until now only udp is fully implemented and supported. I already implement TCP for the ross-acuity series and other, but its not fully tested and the fields for the Acknowledge-Answers are still missing.
-> 
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/a7f2fe7f-06f1-4013-9c0e-f24d3d9f4580)
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/f8953a1d-e4fc-4247-add1-5bef51d6df6f)
 
 ### TSL-Assigment of channels
 Under ```Configuration```, ```More TSL-Configurations``` you will find an assignment for the tallys. Every tally has an unique id (for example bb). With this function you can assign tallys for a different input-channel (for example tally bb for input 6). You can assign there the input-channels of the tsl program-bus and preview-bus. Until now its only possible to use the channels until 8.
