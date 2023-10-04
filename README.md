@@ -29,8 +29,6 @@ Here are listed the main product specifications:
 - SMA-Port for an antenna
 - four xlr closing contacts for using it without IP-functionality
 
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/d5818a3e-05d0-45f9-b427-b9f3995d2503)
-
 ### Recipients
 - max. four recipients at the same time
 - completely wireless over loraWAN 868 MHz 
@@ -44,8 +42,7 @@ Here are listed the main product specifications:
 - one WS2812 neopixel leds for the directly view of that tally
 - multiple inputs at the same time are supported (for example in the mix mode from a switcher)
 
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/352acc07-0c4e-48c6-9477-c842452fce6a)
-
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/d5818a3e-05d0-45f9-b427-b9f3995d2503)
 
 ## Hardware
 For the project i used two different microcontroller for it. The LilyGO-T-ETH-POE on the left site for the basestation and the LilyGO-LORA32 V2.1 one the right site for the tally-recipints. 
