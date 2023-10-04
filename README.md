@@ -28,7 +28,9 @@ Here are listed the main product specifications:
 - micro-usb and usb-c port for upate the device or power it
 - SMA-Port for an antenna
 - four xlr closing contacts for using it without IP-functionality
-  
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/d5818a3e-05d0-45f9-b427-b9f3995d2503)
+
 ### Recipients
 - max. four recipients at the same time
 - completely wireless over loraWAN 868 MHz 
@@ -41,6 +43,9 @@ Here are listed the main product specifications:
 - SMA-Port for an antenna
 - one WS2812 neopixel leds for the directly view of that tally
 - multiple inputs at the same time are supported (for example in the mix mode from a switcher)
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/352acc07-0c4e-48c6-9477-c842452fce6a)
+
 
 ## Hardware
 For the project i used two different microcontroller for it. The LilyGO-T-ETH-POE on the left site for the basestation and the LilyGO-LORA32 V2.1 one the right site for the tally-recipints. 
@@ -196,6 +201,9 @@ Under ```Network``` you can change ip-adresses for the manual network mode. The 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/4ded4177-5f02-4ea2-8f14-e8b8aebf3b8b)
 
 ## Throubleshooting
+
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/3a630f99-4628-48a2-93c5-04c2b5e5c52a)
+
 _______________________________________________________________________________________________________________________________
 *The device didnt starts.* 
 
