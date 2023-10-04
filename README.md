@@ -80,8 +80,7 @@ At the next is a diagram, which shows you different communication modes:
 The first, when everything is just turned on, the basestation sends an **discover-message** via broadcast to every recipient. The recipients responds the base station with an **offer-message** one after the other via unicast. Its nessary to connect minimum one recipient. Otherwiese the state will be not finished. Once a tally is connected, you still have 2 minutes to connect another one. This time increases again and again until eventually all four are connected. That time can be changed in the settings of base station. Is everythink connected, the basestation change after the discover-time automaticly to the **request-mode**. From here are only unicast sended by the basestation and the recipients. An Requests will be sended by the basestation, when the input-information are coming in. That message is responed by the recipient by an **acknowledge-message**. Durring the process, its importan to control the recipients that are already online over the time. For this the basestation will send an **control-message** to every recipients in an interval after 5-10 minutes. Thats also responed with an **acknowledge-message** by the recipient. If the recipient is not responding after two trys, maybe in case of the accumulator is empty or the recipient is out of range, the basestation will turn the respective tally as offline. The recipient will show it also with the yellow constant led state.
 
 ### Input-Modes
-The are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
-
+Under ```Configuration``` there are are two modes availble. One with an *gpio close contact* (named GPIO in the system), which is provided as an voltage-devider. 0V will be turn the tally of and 3,3V will it turn on. The Input pins on the XLR-ports are pin 2 (+) and 3 (-). The other more advanced mode is the *tsl ip mode* (named TSL in the system). You transmit the tallydata via and TCP/UDP-package from your image mixer to the redtally basestation. 
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/41909d93-b045-4c93-a177-2fe2b04aeaa6)
 
 > [!NOTE]
@@ -89,9 +88,14 @@ The are two modes availble. One with an *gpio close contact* (named GPIO in the 
 - ross carbonite series (TSL v3.1 via UPD)
 
 I planed more interfaces depends from the demand:
-- acuity
+- ross acuity
 - vmix
 - tricaster
+
+### Main-Page
+If you have successfull login in with the default login "admin", "admin", you have access to all of the listed functions below. But at first, something about the main page. In the green box you have the navigation-line. In the pink box is the status-line about the system.  It shows you into the red field the local basestation adress of the basestation, the yellow field shows you the current opperation mode, where the basestation is (here its the offer-mode) and the blue field shows you the totaly connected tallys in that moment. In the grey box, there is a overview about connected and deconnected tallys, the rssi connection quality and remaining battery capacity.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/4a0f398b-9f45-4374-a9bb-f65a19a796b5)
+
 
 ### Led-States
 You have different colors and states on the led from the recipient:
@@ -105,43 +109,78 @@ You have different colors and states on the led from the recipient:
 | yellow | fast blinking | The tally is in the registration process |
 | off | constant | The tally is fully connected without any problems |
 
+### TSL-Device
+Under ```Configuration```, ```More TSL-Configurations``` you have the oppertunity to select the used interface for tsl-communication.
+> [!NOTE]
+> At this time, only the ross carbonite series is supported.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/a7f2fe7f-06f1-4013-9c0e-f24d3d9f4580)
+
+### TSL-Transport
+Under ```Configuration```, ```More TSL-Configurations``` you can choose the transport protocol for the tsl-communication. 
+> [!NOTE]
+> Until now only udp is fully implemented and supported. I already implement TCP for the ross-acuity series and other, but its not fully tested and the fields for the Acknowledge-Answers are still missing.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/a7f2fe7f-06f1-4013-9c0e-f24d3d9f4580)
+
 ### TSL-Assigment of channels
 Under ```Configuration```, ```More TSL-Configurations``` you will find an assignment for the tallys. Every tally has an unique id (for example bb). With this function you can assign tallys for a different input-channel (for example tally bb for input 6). You can assign there the input-channels of the tsl program-bus and preview-bus. Until now its only possible to use the channels until 8.
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ded70df8-c8b7-4349-8718-f8ccdc4a8c74)
 
-### tsl application port
-*coming soon*
-
-### tsl-udp diagramm support
-*coming soon*
+### TSL-Application port
+Under ```Configuration```, ```More TSL-Configurations``` is the incoming tsl-udp port meaning. You have to configure the port same port at your outgoing device (for example 5727 in your ross carbonite mixer).
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ec29b940-b1e7-4f32-9502-919013bc3080)
 
 ### Energy Save Mode
 Under ```Configuration``` you will find the energy save functionhe tallys. For this i turn of the display and put the recipients into a deep-sleep until shortly the next control message is comming. After them, its starts to sleep again. I implemented the function to save energy during an interruption or break. It receives also **request-messages** durring the deep-sleep. I dont know why, but i think it didnt turn off the loraMODEM.
 > [!IMPORTANT]
 > Please use this function as an unstable function.
-![image](https://github.com/martinmmi/redtally_docs/assets/118231543/ded70df8-c8b7-4349-8718-f8ccdc4a8c74)
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/fc3a8172-6efd-4525-b710-73fa22a0fad1)
 
 ### Discover Time
 Under ```Configuration``` you will find the discover time field. Durring the discovering of recipients, is that the time which is renewed when a recipient is founded after it starts to go to the request-mode.
 ![image](https://github.com/martinmmi/redtally_docs/assets/118231543/fc0bb483-7d84-481f-a44e-7e32ce8fd799)
 
-### lora transmission values
-*coming soon*
+### Lora Config
+Under ```Configuration``` you will find the lora-transmission-parameters. For you its only possible to change the transmission power of the lora-transmission. The change affects both the sender and the receiver. The sender and the receiver will restart by yourself, if the values is changed. 
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/58370e98-b220-4968-ae04-c61d8ecf4e2b)
+Here some information for the spreading factor (sf):
 
-### user credentials
-*coming soon*
+Small spreading factor (e.g.⁥SF7):
+- Short transmission time
+- 10 transactions per second possible
+- Less power consumption
+- Lower range
+- More participants in the network possible
+- Small radio cell
+  
+Large spreading factor (e.g.⁥SF11):
+- Long transmission time
+- Only one transaction per second possible
+- Significantly more power consumption (10x)
+- Greater reach
+- Fewer participants in the network possible
+- Large radio cell
 
-### network operation mode (dhcp or manual)
-*coming soon*
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/680111b1-be21-4886-8628-2cecf7261d1d)
 
-### static ip configuration
-*coming soon*
+The bandwidth for the LoRa modulation can be adjusted, including 31.25 kHz, 41.7 kHz, 62.5 kHz, 125 kHz, 250 kHz and 500 kHz. A smaller bandwidth requires significantly more time for message transmission.
 
-### wlan and wlan credentials
-*coming soon*
+### User Credentials
+Under ```Configuration``` you can change the user credentials for your login. The user and the password are stored into the eeprom. Please dont forget it, otherwise the eeprom musst restored. For every authenification i used a post request via sha-keying. The default login is "admin" with the passwort "admin".
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/88aa5027-8269-47a6-9e22-d6be10daf649)
 
-### post authenification via sha-keying
-*coming soon*
+### Wlan and wlan credentials
+Under ```Network``` you can activate the wlan function and if its possible, change the credentials. 
+> [!NOTE]
+> At this time, you must activate the wlan manualy because the value is not stored into the eeprom.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/e01fccf0-facf-4b39-9c8b-c68d1dd6836d)
+
+### Network operation mode (Dhcp or Manual)
+Under ```Network``` you can change the network operation mode. Its possilble to yous dhcp or manual. The value is stored into the eeprom. The small display on the basestation showed the current ip-adress.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/418b67b1-4c98-4987-ab1d-10f5a6c07340)
+
+### Static ip-configuration
+Under ```Network``` you can change ip-adresses for the manual network mode. The values are stored into the eeprom.
+![image](https://github.com/martinmmi/redtally_docs/assets/118231543/4ded4177-5f02-4ea2-8f14-e8b8aebf3b8b)
 
 ## Throubleshooting
 _______________________________________________________________________________________________________________________________
@@ -163,6 +202,8 @@ ________________________________________________________________________________
 
 Its possible to use the system via VPN. The Data stream is completely encapsulated by the VPN-client. I tested it from germany to the european foreign countries successful.
 _______________________________________________________________________________________________________________________________
+
+For any other problems, please open an issue in the issues thread. Thanks
 
 
 
